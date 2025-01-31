@@ -10,6 +10,7 @@ class ConsultingAssignmentAdmin(admin.ModelAdmin):
     search_fields = ('title', 'required_experience', 'role_description')
     prepopulated_fields = {'slug': ('title',)}
 
+
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('author', 'post', 'created_on', 'approved')
