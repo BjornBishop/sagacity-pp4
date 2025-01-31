@@ -17,10 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include("blog.urls"), name="blog-urls"),
-    path('assignments/', ConsultingAssignmentListView.as_view(), name='assignment_list'),
+    path("", include("blog.urls")),  
 ]
