@@ -54,7 +54,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'sagacity-pp4.urls'
+ROOT_URLCONF = 'codestar.urls'
 
 TEMPLATES = [
     {
@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'sagacity-pp4.wsgi.application'
+WSGI_APPLICATION = 'codestar.wsgi.application'
 
 
 # Database
