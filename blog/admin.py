@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ConsultingAssignment
+from .models import ConsultingAssignment, Comment
 
 # Register your models here.
 
