@@ -24,12 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-6cs&js)_+z#i)!6)!=b)i^x6k5*$932-1%crra0oqeij=2dz&c'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['8000-bjornbishop-sagacitypp4-ozniwj1onbv.ws-eu117.gitpod.io','.herokuapp.com']
+ALLOWED_HOSTS = ['8000-bjornbishop-sagacitypp4-ozniwj1onbv.ws-us117.gitpod.io','.herokuapp.com']
 
 
 # Application definition
@@ -88,6 +88,12 @@ WSGI_APPLICATION = 'codestar.wsgi.application'
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.codeinstitute-ide.net/",
+    "https://*.herokuapp.com",
+    "https://8000-bjornbishop-sagacitypp4-ozniwj1onbv.ws-us117.gitpod.io"
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
