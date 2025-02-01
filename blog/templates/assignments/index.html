@@ -21,7 +21,7 @@
                             <a href="{% url 'assignment_detail' assignment.slug %}" class="post-link">
                                 <h2 class="card-title">{{ assignment.title }}</h2>
                             </a>
-                            <p class="card-text">{{ assignment.role_description|truncatewords:30 }}</p>
+                            <p class="card-text">{{ assignment.role_description|truncatewords:30|safe }}</p>
                             <hr />
                             <p class="card-text text-muted h6">{{ assignment.created_on|date:"F j, Y" }}</p>
                             <p class="card-text text-muted h6">Industry: {{ assignment.get_industry_display }}</p>
