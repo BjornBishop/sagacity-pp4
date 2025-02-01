@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ object.title }}</h1>
+    <p><strong>Author:</strong> {{ object.author }}</p>
+    <p><strong>Industry:</strong> {{ object.get_industry_display }}</p>
+    <p><strong>Status:</strong> {{ object.get_status_display }}</p>
+    <p><strong>Required Experience:</strong> {{ object.required_experience }}</p>
+    <p><strong>Role Description:</strong> {{ object.role_description|safe }}</p>
+    <p><strong>Created On:</strong> {{ object.created_on|date:"F j, Y" }}</p>
+</div>
+{% endblock %}
