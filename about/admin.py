@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import About
+from .models import About, CollaborationRequest
 from django_summernote.admin import SummernoteModelAdmin
 
 
