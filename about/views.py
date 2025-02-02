@@ -13,7 +13,7 @@ def about_me(request):
         form = CollaborateForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your collaboration request has been submitted successfully.')
+            messages.success(request, 'Your application request has been submitted successfully. We should respond within the week')
             return redirect('about')
     else:
         form = CollaborateForm()

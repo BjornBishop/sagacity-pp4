@@ -1,4 +1,6 @@
 /* styles.css */
+
+/* General Styles */
 body {
     background-color: #F9FAFC;
 }
@@ -36,6 +38,24 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Subtle shadow for depth */
 }
 
+/* Images */
+
+img {
+    display: block; 
+    max-width: 100%;
+    height: auto;    
+    visibility: visible; 
+}
+
+.container img {
+    overflow: visible;
+}
+
+.col-4 img {
+    width: 75%;
+}
+
+/* Masthead */
 .masthead {
     margin-top: 10px;
     overflow: hidden;
@@ -87,4 +107,65 @@ body {
 
 .card-body p {
     margin: 10px 0;
+}
+
+/* Login and Logout Form Styling */
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+h3 {
+    font-family: 'Lato', sans-serif;
+    color: #2C3E50;
+    margin-bottom: 20px;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    color: #2C3E50;
+}
+
+form.login, form.logout {
+    display: flex;
+    flex-direction: column;
+}
+
+form.login input, form.logout input, form.login button, form.logout button {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 10px;
+}
+
+button.btn-signup {
+    background-color: #2980B9;  /* Blue accent color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button.btn-signup:hover {
+    background-color: #1F6391;
+}
+
+.right {
+    align-self: flex-end;
+}
+
+/* Additional styling for better spacing */
+.col-md-8 {
+    margin-top: 15px;
+}
+
+.mt-3 {
+    margin-top: 1rem !important;
+}
+
+.offset-md-2 {
+    margin-left: 16.66666667% !important;
 }

@@ -1,23 +1,28 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% block content %}
-{% load static %}
 <div class="container mt-5">
+  <!-- Page Title -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <h1>About the Creator</h1>
+    </div>
+  </div>
+
+  <!-- Existing Content -->
   <div class="row">
     <div class="col-4 text-center">
       <img src="{% static 'images/nobody.jpg' %}" width="75%" />
     </div>
     <div class="col-8">
-      <!-- Title goes between these h2 tags -->
       <h2>{{ about.title }}</h2>
-      <!-- Content goes directly underneath this -->
       {{ about.content | safe }}
     </div>
   </div>
   <div class="row">
     <div class="col text-right">
-      <!-- Updated on field goes in here -->
       <p class="text-end"><em>Updated on: {{ about.updated_on }}</em></p>
     </div>
   </div>
@@ -25,7 +30,7 @@
   <!-- Collaborate Form Section -->
   <div class="row mt-5">
     <div class="col-12">
-      <h3>Collaborate with Me</h3>
+      <h3>Apply for a specific role</h3>
       <form method="POST" action=".">
         {% csrf_token %}
         {{ form|crispy }}
