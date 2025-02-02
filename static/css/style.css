@@ -1,3 +1,4 @@
+/* styles.css */
 body {
     background-color: #F9FAFC;
 }
@@ -71,6 +72,7 @@ body {
     background-color: #2C3E50;  /* Darker blue for a professional look */
     color: white;
     position: relative;
+    padding-left: 5%;  /* Ensure consistent alignment with other content */
 }
 
 .masthead-image {
@@ -104,12 +106,22 @@ body {
 
 .post-title {
     margin-top: 10%;
-    margin-left: 5%;
 }
 
 .post-subtitle {
-    margin-left: 5%;
     color: lightgray;
+}
+
+.post-industry {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #ccc;  /* Slightly lighter color for differentiation */
+}
+
+.post-excerpt {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #eee;  /* Slightly lighter color for differentiation */
 }
 
 .btn-signup,
@@ -162,16 +174,16 @@ body {
 }
 
 /* CSS for images in post details */
-
-.assignment-image-container {
-    text-align: center;
+.assignment-image-wrapper {
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
     margin-top: 20px;
+    width: 100%;         
 }
 
-.styled-assignment-image {
-    max-width: 50%;
+.masthead-image .scale {
+    max-width: 20%; 
     height: auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: block;
-    margin: 0 auto;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2); 
 }

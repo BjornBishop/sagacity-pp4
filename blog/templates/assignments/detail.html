@@ -2,16 +2,40 @@
 {% load static %}
 
 {% block content %}
+<div class="masthead">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-md-6 masthead-text">
+                <h1 class="post-title">{{ object.title }}</h1>
+                <p class="post-subtitle">{{ object.author }} | {{ object.created_on|date:"F j, Y" }}</p>
+                <p class="post-industry">Industry: {{ object.get_industry_display }}</p>
+                <p class="post-excerpt">{{ object.excerpt }}</p>
+            </div>
+            <div class="d-none d-md-block col-md-6 masthead-image">
+                {% if object.industry == "FS" %}
+                    <img src="{% static 'images/financial_services.jpg' %}" class="scale" alt="Financial Services">
+                {% elif object.industry == "COM" %}
+                    <img src="{% static 'images/commercial.jpg' %}" class="scale" alt="Commercial">
+                {% elif object.industry == "MAN" %}
+                    <img src="{% static 'images/industrial.jpg' %}" class="scale" alt="Manufacturing">
+                {% else %}
+                    <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
-    <h1>{{ object.title }}</h1>
-    <p><strong>Author:</strong> {{ object.author }}</p>
-    <p><strong>Industry:</strong> {{ object.get_industry_display }}</p>
-    <p><strong>Status:</strong> {{ object.get_status_display }}</p>
-    <p><strong>Required Experience:</strong> {{ object.required_experience }}</p>
-    <p><strong>Role Description:</strong> {{ object.role_description|safe }}</p>
-    <p><strong>Created On:</strong> {{ object.created_on|date:"F j, Y" }}</p>
+    <div class="row">
+        <div class="col card mb-4 mt-3 left top">
+            <div class="card-body">
+                <p class="card-text">
+                    {{ object.role_description|safe }}
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="assignment-image-container">
-    <img src="{% static 'images/default.jpg' %}" class="styled-assignment-image" alt="placeholder">
-</div>
+
 {% endblock %}

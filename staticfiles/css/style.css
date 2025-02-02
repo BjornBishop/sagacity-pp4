@@ -160,3 +160,17 @@ body {
 .approval {
     color: rgb(222, 146, 168);
 }
+
+/* CSS for images in post details */
+
+.assignment-image-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.styled-assignment-image {
+    max-width: 50%;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
