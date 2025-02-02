@@ -12,28 +12,23 @@ document.addEventListener("DOMContentLoaded", function() {
             e.preventDefault();  // Prevent the default action
             let commentId = e.target.getAttribute("comment_id");
             let commentContent = document.getElementById(`comment${commentId}`).innerText;
-            let slug = commentForm.getAttribute("data-slug"); 
+            let slug = commentForm.getAttribute("data-slug");
             commentText.value = commentContent;
             submitButton.innerText = "Update";
-            commentForm.setAttribute("action", `/assignment/${slug}/edit_comment/${commentId}/`); 
+            commentForm.setAttribute("action", `/assignment/${slug}/edit_comment/${commentId}/`);
         });
     }
 
-    /**
-    * Initializes deletion functionality for the provided delete buttons.
-    * 
-    * For each button in the `deleteButtons` collection:
-    * - Retrieves the associated comment's ID upon click.
-    * - Updates the `deleteConfirm` link's href to point to the 
-    * deletion endpoint for the specific comment.
-    * - Displays a confirmation modal (`deleteModal`) to prompt 
-    * the user for confirmation before deletion.
-    */
+    // Add logging to delete button event listeners
     for (let button of deleteButtons) {
+        console.log("Attaching delete event listener to button:", button);
         button.addEventListener("click", (e) => {
             e.preventDefault();  // Prevent the default action
             let commentId = e.target.getAttribute("comment_id");
+            console.log("Delete button clicked, comment_id:", commentId);
+            let slug = commentForm.getAttribute("data-slug");
             deleteConfirm.href = `/assignment/${slug}/delete_comment/${commentId}/`;
+            console.log("Delete confirmation link set to:", deleteConfirm.href);
             deleteModal.show();
         });
     }
