@@ -47,6 +47,22 @@ INSTALLED_APPS = [
     'django_summernote',
 ]
 
+# Summernote confidurations
+
+SUMMERNOTE_CONFIG = {
+    'summernote': {
+        'toolbar': [
+            ['style', ['style']],
+            ['font', ['bold', 'italic', 'underline', 'clear']],
+            ['fontname', ['fontname']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview', 'help']],
+        ],
+    },
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -96,7 +112,8 @@ DATABASES = {
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeinstitute-ide.net/",
     "https://*.herokuapp.com",
-    "https://8000-bjornbishop-sagacitypp4-ozniwj1onbv.ws-us117.gitpod.io"
+    "https://8000-bjornbishop-sagacitypp4-ozniwj1onbv.ws-us117.gitpod.io",
+    'https://8000-bjornbishop-sagacitypp4-ozniwj1onbv.ws-eu117.gitpod.io',
 ]
 
 # Password validation
