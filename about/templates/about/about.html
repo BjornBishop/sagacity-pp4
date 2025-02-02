@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>{{ about.title }}</h1>
+            <p>{{ about.updated_on|date:"F j, Y" }}</p>
+            <div>
+                {{ about.content|safe }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <img src="{% static 'images/nobody.jpg' %}" alt="About Image" class="img-fluid">
+        </div>
+    </div>
+</div>
+{% endblock %}
