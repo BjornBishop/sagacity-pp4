@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
-from bleach import Cleaner
 
 if os.path.isfile('env.py'):
     import env
@@ -30,7 +29,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-bjornbishop-sagacitypp4-ozniwj1onbv.ws-us117.gitpod.io',
@@ -51,32 +50,6 @@ INSTALLED_APPS = [
     'about',
     'django_summernote',
 ]
-
-# Summernote configurations
-
-SUMMERNOTE_CONFIG = {
-    'summernote': {
-        'toolbar': [
-            ['style', ['style']],
-            ['font', ['bold', 'italic', 'underline', 'clear']],
-            ['fontname', ['fontname']],
-            ['para', ['ul', 'ol', 'paragraph']],
-            ['table', ['table']],
-            ['insert', ['link', 'picture', 'video']],
-            ['view', ['fullscreen', 'codeview', 'help']],
-        ],
-    },
-}
-
-# Custom bleach cleaner without 'styles'
-custom_summernote_cleaner = Cleaner(
-    tags=SUMMERNOTE_CONFIG['summernote']['toolbar'],
-    attributes=['style', 'color', 'size', 'href', 'class', 'id', 'src', 'title', 'alt', 'type', 'target', 'align']
-)
-
-def custom_bleach_clean(value):
-    """ Custom bleach clean function """
-    return custom_summernote_cleaner.clean(value)
 
 # Middleware configurations
 
