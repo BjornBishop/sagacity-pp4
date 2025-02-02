@@ -11,3 +11,13 @@ class ConsultingAssignmentList(generic.ListView):
 class ConsultingAssignmentDetail(generic.DetailView):
     model = ConsultingAssignment
     template_name = 'assignments/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        post = self.get_object()
+        comments = post.comments.all().order_by("-created_on")
+        comment_count = post.comments.filter(approved=True).count()
+
+        context['comments'] = comments
+        context['comment_count'] = comment_count
+        return context
