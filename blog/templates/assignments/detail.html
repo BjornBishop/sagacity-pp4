@@ -8,8 +8,6 @@
             <div class="col-md-6 masthead-text">
                 <h1 class="post-title">{{ object.title }}</h1>
                 <p class="post-subtitle">{{ object.author }} | {{ object.created_on|date:"F j, Y" }}</p>
-                <p class="post-industry">Industry: {{ object.get_industry_display }}</p>
-                <p class="post-excerpt">{{ object.excerpt }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 {% if object.industry == "FS" %}
@@ -30,6 +28,8 @@
     <div class="row">
         <div class="col card mb-4 mt-3 left top">
             <div class="card-body">
+                <p><strong>Industry:</strong> {{ object.get_industry_display }}</p>
+                <p><strong>Required Experience:</strong> {{ object.required_experience }}</p>
                 <p class="card-text">
                     {{ object.role_description|safe }}
                 </p>

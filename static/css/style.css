@@ -36,29 +36,6 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Subtle shadow for depth */
 }
 
-.image-container {
-    position: relative;
-}
-
-.image-flash {
-    position: absolute;
-    bottom: 5%;
-    min-width: 30%;
-    left: -2px;
-    background-color: #2980B9;  /* Blue accent color */
-}
-
-.scale {
-    width: 100%;
-    height: auto;
-}
-
-.author {
-    color: white;
-    margin: 4px;
-    text-transform: uppercase;
-}
-
 .masthead {
     margin-top: 10px;
     overflow: hidden;
@@ -72,7 +49,7 @@ body {
     background-color: #2C3E50;  /* Darker blue for a professional look */
     color: white;
     position: relative;
-    padding-left: 5%;  /* Ensure consistent alignment with other content */
+    padding: 10px 5%;  /* Ensure consistent padding */
 }
 
 .masthead-image {
@@ -94,14 +71,10 @@ body {
     z-index: 100;
 }
 
-.post-link {
-    text-decoration: none;
-    color: #2C3E50;  /* Darker blue for a professional look */
-}
-
-.post-link:hover,
-.page-link {
-    color: #2980B9;  /* Blue accent color */
+.scale {
+    max-width: 50%;  /* Adjust the image size as needed */
+    height: auto;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);  /* Define shadow on bottom and right */
 }
 
 .post-title {
@@ -112,78 +85,6 @@ body {
     color: lightgray;
 }
 
-.post-industry {
-    margin-top: 10px;
-    font-size: 1rem;
-    color: #ccc;  /* Slightly lighter color for differentiation */
-}
-
-.post-excerpt {
-    margin-top: 10px;
-    font-size: 1rem;
-    color: #eee;  /* Slightly lighter color for differentiation */
-}
-
-.btn-signup,
-.btn-edit {
-    background-color: #2980B9;  /* Blue accent color */
-    color: #fff;
-}
-
-.btn-signup:hover,
-.btn-signup:active {
-    background-color: #fff;
-    color: #2980B9;  /* Blue accent color */
-}
-
-.link {
-    color: #2980B9;  /* Blue accent color */
-    text-decoration: none;
-}
-
-.link:hover,
-.link:active {
-    color: #2C3E50;  /* Darker blue for a professional look */
-    text-decoration: underline;
-}
-
-.btn-like {
-    color: #2980B9;  /* Blue accent color */
-    border: none;
-    background: transparent;
-}
-
-.btn-delete {
-    color: #fff;
-    background: #E74C3C;  /* Red for delete button */
-}
-
-.btn-like:hover,
-.btn-like:active {
-    color: #2980B9;  /* Blue accent color */
-    background: transparent;
-    border: none;
-}
-
-.faded {
-    color: rgb(172, 175, 175);
-}
-
-.approval {
-    color: rgb(222, 146, 168);
-}
-
-/* CSS for images in post details */
-.assignment-image-wrapper {
-    display: flex;
-    justify-content: center; 
-    align-items: center;    
-    margin-top: 20px;
-    width: 100%;         
-}
-
-.masthead-image .scale {
-    max-width: 20%; 
-    height: auto;
-    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2); 
+.card-body p {
+    margin: 10px 0;
 }

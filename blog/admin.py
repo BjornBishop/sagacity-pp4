@@ -12,6 +12,5 @@ class CommentAdmin(admin.ModelAdmin):
     list_filter = ('approved', 'created_on')
     search_fields = ('author__username', 'content')
 
-# Register your models here
 admin.site.register(ConsultingAssignment, ConsultingAssignmentAdmin)
 admin.site.register(Comment, CommentAdmin)
