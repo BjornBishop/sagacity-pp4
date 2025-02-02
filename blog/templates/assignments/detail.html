@@ -74,30 +74,37 @@
                     </p>
                     {% endif %}
 
-                    <!-- Edit Button -->
+                    <!-- Edit and Delete Buttons -->
                     {% if user.is_authenticated and comment.author == user %}
-                    <button class="btn btn-edit"
-                        onclick="window.location.href='{% url 'comment_edit' slug=object.slug comment_id=comment.id %}'">Edit</button>
+                    <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
+                    <form method="POST" action="{% url 'comment_delete' slug=object.slug comment_id=comment.id %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
                     {% endif %}
-
                 </div>
                 {% endfor %}
             </div>
         </div>
     </div>
 
-<!-- Comment Form -->
-<div class="row">
-    <div class="col-md-8 card mb-4 mt-3">
-        <h3>Leave a Comment:</h3>
-        <div class="card-body">
-            <form id="commentForm" method="POST" action=".">
-                {% csrf_token %}
-                {{ comment_form|crispy }}
-                <button id="submitButton" type="submit" class="btn btn-signup right">Submit</button>
-            </form>
+    <!-- Comment Form -->
+    <div class="row">
+        <div class="col-md-8 card mb-4 mt-3">
+            <h3>Leave a Comment:</h3>
+            <div class="card-body">
+                <form id="commentForm" method="POST" action="." data-slug="{{ object.slug }}">
+                    {% csrf_token %}
+                    {{ comment_form|crispy }}
+                    <button id="submitButton" type="submit" class="btn btn-signup right">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
 
+{% endblock %}
+
+{% block extras %}
+<script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}

@@ -38,22 +38,6 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Subtle shadow for depth */
 }
 
-/* Images */
-
-img {
-    display: block; 
-    max-width: 100%;
-    height: auto;    
-    visibility: visible; 
-}
-
-.container img {
-    overflow: visible;
-}
-
-.col-4 img {
-    width: 75%;
-}
 
 /* Masthead */
 .masthead {

@@ -1,8 +1,9 @@
 from django.urls import path
-from blog.views import ConsultingAssignmentList, ConsultingAssignmentDetail, comment_edit
+from . import views
 
 urlpatterns = [
-    path('', ConsultingAssignmentList.as_view(), name='home'),
-    path('assignment/<slug:slug>/', ConsultingAssignmentDetail.as_view(), name='assignment_detail'),
-    path('assignment/<slug:slug>/edit_comment/<int:comment_id>/', comment_edit, name='comment_edit'),
+    path('', views.ConsultingAssignmentList.as_view(), name='home'),
+    path('assignment/<slug:slug>/', views.ConsultingAssignmentDetail.as_view(), name='assignment_detail'),
+    path('assignment/<slug:slug>/edit_comment/<int:comment_id>/', views.comment_edit, name='comment_edit'),
+    path('assignment/<slug:slug>/delete_comment/<int:comment_id>/', views.comment_delete, name='comment_delete'),
 ]

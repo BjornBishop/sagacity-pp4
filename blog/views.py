@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views import generic
 from django.urls import reverse
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import ConsultingAssignment, Comment
 from .forms import CommentForm
+from django.views import generic
 
 class ConsultingAssignmentList(generic.ListView):
     queryset = ConsultingAssignment.objects.filter(status__in=[1, 2])  # Filter out Draft (0) and Closed (3)
@@ -65,5 +65,21 @@ def comment_edit(request, slug, comment_id):
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
         else:
             messages.add_message(request, messages.ERROR, 'Error updating comment!')
+
+    return HttpResponseRedirect(reverse('assignment_detail', args=[slug]))
+
+def comment_delete(request, slug, comment_id):
+    """
+    View to delete comments
+    """
+    queryset = ConsultingAssignment.objects.filter(status__in=[1, 2])
+    post = get_object_or_404(queryset, slug=slug)
+    comment = get_object_or_404(Comment, pk=comment_id)
+
+    if comment.author == request.user:
+        comment.delete()
+        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+    else:
+        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('assignment_detail', args=[slug]))
