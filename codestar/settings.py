@@ -14,7 +14,6 @@ from pathlib import Path
 import os
 import dj_database_url
 from bleach import Cleaner
-from django_summernote.settings import summernote_config
 
 if os.path.isfile('env.py'):
     import env
@@ -71,8 +70,8 @@ SUMMERNOTE_CONFIG = {
 
 # Custom bleach cleaner without 'styles'
 custom_summernote_cleaner = Cleaner(
-    tags=summernote_config['tags'],
-    attributes=summernote_config['attributes']
+    tags=SUMMERNOTE_CONFIG['summernote']['toolbar'],
+    attributes=['style', 'color', 'size', 'href', 'class', 'id', 'src', 'title', 'alt', 'type', 'target', 'align']
 )
 
 def custom_bleach_clean(value):
