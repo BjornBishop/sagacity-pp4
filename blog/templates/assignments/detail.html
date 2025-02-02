@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <div class="container">
@@ -9,5 +10,8 @@
     <p><strong>Required Experience:</strong> {{ object.required_experience }}</p>
     <p><strong>Role Description:</strong> {{ object.role_description|safe }}</p>
     <p><strong>Created On:</strong> {{ object.created_on|date:"F j, Y" }}</p>
+</div>
+<div class="assignment-image-container">
+    <img src="{% static 'images/default.jpg' %}" class="styled-assignment-image" alt="placeholder">
 </div>
 {% endblock %}
