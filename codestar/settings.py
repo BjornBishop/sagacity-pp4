@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+from bleach import Cleaner
+from django_summernote.settings import summernote_config
+
 if os.path.isfile('env.py'):
     import env
 
@@ -30,8 +33,11 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['8000-bjornbishop-sagacitypp4-ozniwj1onbv.ws-us117.gitpod.io','.herokuapp.com', '8000-bjornbishop-sagacitypp4-ozniwj1onbv.ws-eu117.gitpod.io']
-
+ALLOWED_HOSTS = [
+    '8000-bjornbishop-sagacitypp4-ozniwj1onbv.ws-us117.gitpod.io',
+    '.herokuapp.com', 
+    '8000-bjornbishop-sagacitypp4-ozniwj1onbv.ws-eu117.gitpod.io'
+]
 
 # Application definition
 
@@ -47,7 +53,7 @@ INSTALLED_APPS = [
     'django_summernote',
 ]
 
-# Summernote confidurations
+# Summernote configurations
 
 SUMMERNOTE_CONFIG = {
     'summernote': {
@@ -62,6 +68,18 @@ SUMMERNOTE_CONFIG = {
         ],
     },
 }
+
+# Custom bleach cleaner without 'styles'
+custom_summernote_cleaner = Cleaner(
+    tags=summernote_config['tags'],
+    attributes=summernote_config['attributes']
+)
+
+def custom_bleach_clean(value):
+    """ Custom bleach clean function """
+    return custom_summernote_cleaner.clean(value)
+
+# Middleware configurations
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -97,13 +115,6 @@ WSGI_APPLICATION = 'codestar.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
