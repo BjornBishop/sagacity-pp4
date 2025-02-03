@@ -38,6 +38,11 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Subtle shadow for depth */
 }
 
+/* Index.html Image Shrink */
+.shrink-image {
+    max-width: 80%; /* Reduces the size to 80% (20% reduction) */
+    height: auto; /* Maintain aspect ratio */
+}
 
 /* Masthead */
 .masthead {
@@ -76,9 +81,8 @@ body {
 }
 
 .scale {
-    max-width: 50%;  /* Adjust the image size as needed */
-    height: auto;
-    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);  /* Define shadow on bottom and right */
+    width: 100%;  /* Ensure image fills the width of the container */
+    height: auto;  /* Maintain aspect ratio */
 }
 
 .post-title {
@@ -152,4 +156,19 @@ button.btn-signup:hover {
 
 .offset-md-2 {
     margin-left: 16.66666667% !important;
+}
+
+/* Add consistent color for edit and delete buttons */
+.btn-edit, .btn-delete {
+    background-color: #2980B9;  /* Blue accent color */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-edit:hover, .btn-delete:hover {
+    background-color: #1F6391;
 }
