@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 STATUS = (
     (0, "Draft"),
@@ -29,6 +30,8 @@ class ConsultingAssignment(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
+    featured_image = CloudinaryField('image', default='placeholder')  
+
     class Meta:
         ordering = ["-created_on"]
 
