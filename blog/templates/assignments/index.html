@@ -16,13 +16,13 @@
                         <div class="image-container">
                             <!-- Image logic based on industry -->
                             {% if assignment.industry == "FS" %}
-                            <img class="card-img-top shrink-image" src="{% static 'images/financial_services.jpg' %}" alt="Financial Services">
+                            <img class="card-img-top" src="{% static 'images/financial_services.jpg' %}" alt="Financial Services">
                             {% elif assignment.industry == "COM" %}
-                            <img class="card-img-top shrink-image" src="{% static 'images/commercial.jpg' %}" alt="Commercial">
+                            <img class="card-img-top" src="{% static 'images/commercial.jpg' %}" alt="Commercial">
                             {% elif assignment.industry == "MAN" %}
-                            <img class="card-img-top shrink-image" src="{% static 'images/industrial.jpg' %}" alt="Manufacturing">
+                            <img class="card-img-top" src="{% static 'images/industrial.jpg' %}" alt="Manufacturing">
                             {% else %}
-                            <img class="card-img-top shrink-image" src="{% static 'images/default.jpg' %}" alt="Default">
+                            <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="Default">
                             {% endif %}
                             <div class="image-flash">
                                 <p class="author">Author: {{ assignment.author }}</p>

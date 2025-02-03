@@ -1,14 +1,15 @@
 from django.test import TestCase
 from django.urls import reverse
-from blog.models import ConsultingAssignment
 from django.contrib.auth.models import User
+from blog.models import ConsultingAssignment, Comment
+from django.contrib.messages import get_messages
 
 class ConsultingAssignmentDetailViewTest(TestCase):
 
     @classmethod
     def setUpTestData(cls):
         # Set up a user and a consulting assignment for the test
-        cls.user = User.objects.create(username='testuser', password='testpass')
+        cls.user = User.objects.create_user(username='testuser', password='testpass')
         cls.assignment = ConsultingAssignment.objects.create(
             title='Market Entry Strategy',
             slug='market-entry-strategy',
@@ -38,3 +39,19 @@ class ConsultingAssignmentDetailViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn('object', response.context)
         self.assertEqual(response.context['object'], self.assignment)
+
+    def test_successful_comment_submission(self):
+        """Test for posting a comment on a post"""
+        self.client.login(username='testuser', password='testpass')
+        post_data = {
+            'body': 'This is a test comment.'
+        }
+        response = self.client.post(reverse('assignment_detail', args=[self.assignment.slug]), post_data)
+        
+        # Follow the redirect
+        self.assertEqual(response.status_code, 302)
+        response = self.client.get(reverse('assignment_detail', args=[self.assignment.slug]))
+        
+        # Check for the success message in the redirected response
+        messages = list(get_messages(response.wsgi_request))
+        self.assertTrue(any("Comment submitted and awaiting approval" in str(message) for message in messages))

@@ -1,0 +1,38 @@
+Test Description:
+
+TestConsultingAssignmentListView:
+Tests the accessibility of the consulting assignment list view URL.
+Ensures the correct template is used for the consulting assignment list view.
+Verifies the context contains the correct consulting assignment list.
+
+TestConsultingAssignmentDetailView:
+Tests the accessibility of the consulting assignment detail view URL by slug.
+Ensures the correct template is used for the consulting assignment detail view.
+Verifies the context contains the correct consulting assignment.
+Tests successful comment submission and verifies the success message.
+
+TestAboutView:
+Tests the accessibility of the about view URL.
+Ensures the about view contains the collaboration form.
+Verifies successful collaboration request submission and checks for the success message.
+
+TestCollaborateForm:
+Tests the validity of the CollaborateForm with valid data.
+Verifies the name field is required.
+Verifies the email field is required.
+Verifies the message field is required.
+Checks for invalid email format.
+Tests the validity when both name and message are missing.
+Tests the validity when both email and message are missing.
+
+TestCommentEdit:
+Tests the accessibility of the comment edit view URL.
+Ensures the correct template is used for the comment edit view.
+Verifies the context contains the correct comment form.
+Tests successful comment update and verifies the success message.
+
+TestCommentDelete:
+Tests the accessibility of the comment delete view URL.
+Ensures the correct template is used for the comment delete view.
+Verifies the context contains the correct comment for deletion.
+Tests successful comment deletion and verifies the success message.
