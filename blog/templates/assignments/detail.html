@@ -11,14 +11,10 @@
                 <p class="post-subtitle">{{ object.author }} | {{ object.created_on|date:"F j, Y" }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
-                {% if object.industry == "FS" %}
-                    <img src="{% static 'images/financial_services.jpg' %}" class="scale" alt="Financial Services">
-                {% elif object.industry == "COM" %}
-                    <img src="{% static 'images/commercial.jpg' %}" class="scale" alt="Commercial">
-                {% elif object.industry == "MAN" %}
-                    <img src="{% static 'images/industrial.jpg' %}" class="scale" alt="Manufacturing">
-                {% else %}
+                {% if "placeholder" in object.featured_image.url %}
                     <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder">
+                {% else %}
+                    <img src="{{ object.featured_image.url }}" class="scale" alt="{{ object.title }}">
                 {% endif %}
             </div>
         </div>
@@ -37,7 +33,6 @@
             </div>
         </div>
     </div>
-
     <!-- Displaying count of comments -->
     <div class="row">
         <div class="col-12">
@@ -49,7 +44,6 @@
             <hr>
         </div>
     </div>
-
     <!-- Displaying Comments -->
     <div class="row">
         <div class="col-md-8 card mb-4 mt-3">
@@ -73,7 +67,6 @@
                         This comment is awaiting approval
                     </p>
                     {% endif %}
-
                     <!-- Edit and Delete Buttons -->
                     {% if user.is_authenticated and comment.author == user %}
                     <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
@@ -84,7 +77,6 @@
             </div>
         </div>
     </div>
-
     <!-- Comment Form -->
     <div class="row">
         <div class="col-md-8 card mb-4 mt-3">
@@ -99,7 +91,6 @@
         </div>
     </div>
 </div>
-
 <!-- Delete Confirmation Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -118,7 +109,6 @@
     </div>
   </div>
 </div>
-
 {% endblock %}
 
 {% block extras %}

@@ -38,6 +38,13 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Subtle shadow for depth */
 }
 
+/* Index.html Image Shrink */
+
+.shrink-image {
+    transform: scale(0.5); /* Reduces the size to 70% (30% reduction) */
+    transform-origin: center center; /* Keeps the scaling centered */
+}
+
 
 /* Masthead */
 .masthead {
